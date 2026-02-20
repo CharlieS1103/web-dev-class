@@ -1,0 +1,33 @@
+name: build-zip
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create zip
+        run: |
+          zip -r fourth.zip fourth -x "*/.DS_Store"
+
+      - name: Publish build branch
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          mkdir -p /tmp/build
+          mv fourth.zip /tmp/build/fourth.zip
+          git checkout --orphan build
+          git rm -rf .
+          mv /tmp/build/fourth.zip fourth.zip
+          git add fourth.zip
+          git commit -m "Build submission zip"
+          git push -f origin build
