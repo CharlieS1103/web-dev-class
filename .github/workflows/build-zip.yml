@@ -17,17 +17,17 @@ jobs:
 
       - name: Create zip
         run: |
-          zip -r fourth.zip fourth -x "*/.DS_Store"
+          zip -r project.zip project -x "*/.DS_Store"
 
       - name: Publish build branch
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           mkdir -p /tmp/build
-          mv fourth.zip /tmp/build/fourth.zip
+          mv project.zip /tmp/build/project.zip
           git checkout --orphan build
           git rm -rf .
-          mv /tmp/build/fourth.zip fourth.zip
-          git add fourth.zip
+          mv /tmp/build/project.zip project.zip
+          git add project.zip
           git commit -m "Build submission zip"
           git push -f origin build
