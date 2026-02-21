@@ -7,9 +7,11 @@
     --paper: #f1f0ea;
     --panel: #f8f7f2;
     --border: #e4e1d7;
-    --accent: #485546;
-    --highlight: #384438;
+    --accent: #252d25;
+    --highlight: #252d25;
     --muted: #6a6a6a;
+    --secondary: #cfd6c9;
+    --secondary-misc: #8a8e88;
 }
 
 body {
@@ -76,9 +78,9 @@ img {
 
 .navbar a:hover,
 .navbar a.active {
-    background-color: #cfd6c9;
+    background-color: var(--secondary);
     color: var(--ink);
-    border-color: #c0c7bc;
+    border-color: var(--secondary-misc);
 }
 
 .row {
@@ -94,7 +96,7 @@ img {
     flex: 1 1 260px;
     background: var(--panel);
     padding: 20px;
-    border: 1px solid #edeae0;
+    border: 1px solid var(--border);
     border-radius: 8px;
 }
 
@@ -111,15 +113,15 @@ img {
     margin-top: 20px;
     padding: 16px;
     border-radius: 8px;
-    background: #efede4;
-    border: 1px solid #e2dfd5;
+    background: var(--panel);
+    border: 1px solid var(--border);
 }
 
 .main {
     flex: 3 1 480px;
     background: var(--panel);
     padding: 24px;
-    border: 1px solid #edeae0;
+    border: 1px solid var(--border);
     border-radius: 8px;
 }
 
@@ -138,18 +140,9 @@ img {
     flex: 2 1 320px;
 }
 
-.topic-media {
-    flex: 1 1 200px;
-    background: #f8f7f2;
-    border-radius: 8px;
-    padding: 12px;
-    border: 1px solid #e2dfd5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.chip-list {
+
+.horizontal-list {
     list-style: none;
     padding: 0;
     display: flex;
@@ -158,11 +151,11 @@ img {
     margin: 16px 0 0;
 }
 
-.chip-list li {
+.horizontal-list li {
     padding: 6px 12px;
     border-radius: 6px;
-    background: #edeae0;
-    border: 1px solid #e2dfd5;
+    background: var(--panel);
+    border: 1px solid var(--border);
     font-size: 0.9rem;
 }
 
@@ -180,10 +173,10 @@ img {
 
 .project-card {
     flex: 1 1 240px;
-    background: #f5f3ec;
+    background: var(--panel);
     border-radius: 8px;
     padding: 16px;
-    border: 1px solid #e8e4da;
+    border: 1px solid var(--border);
 }
 
 .project-card a {
@@ -206,7 +199,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 12px;
-    background: #f8f7f2;
+    background: var(--panel);
     border-radius: 8px;
     overflow: hidden;
 }
@@ -214,46 +207,12 @@ table {
 th,
 td {
     padding: 12px 14px;
-    border-bottom: 1px solid #e4e1d7;
+    border-bottom: 1px solid var(--border);
     text-align: left;
 }
 
 th {
-    background: #edeae0;
-}
-
-.form-card {
-    padding: 20px;
-    border-radius: 8px;
-    background: #f5f3ec;
-    border: 1px solid #e8e4da;
-}
-
-.form-card label {
-    display: block;
-    margin-bottom: 6px;
-    color: var(--muted);
-}
-
-.form-card input,
-.form-card textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 6px;
-    border: 1px solid #e4e1d7;
-    background: #fdfcf9;
-    color: var(--ink);
-    margin-bottom: 16px;
-}
-
-.form-card button {
-    border: none;
-    background: #06260c;
-    color: #ffffff;
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
+    background: var(--panel);
 }
 
 .footer {
@@ -269,18 +228,19 @@ th {
 }
 
 .contact-tag {
-    background-color: #edeae0;
+    background-color: var(--panel);
     color: var(--ink);
     border-radius: 6px;
-    border: 1px solid #e2dfd5;
+    border: 1px solid var(--border);
     font-weight: 600;
     padding: 2px 8px;
 }
 
 .collage {
     display: grid;
+    
     gap: 12px;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     margin-top: 16px;
 }
 
@@ -289,9 +249,9 @@ th {
     width: 100%;
     height: 140px;
     object-fit: cover;
-    border: 1px solid #e2dfd5;
+    border: 1px solid var(--border);
     border-radius: 6px;
-    background: #f8f7f2;
+    background: var(--panel);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -302,9 +262,9 @@ th {
 .collage-video {
     width: 100%;
     height: 140px;
-    border: 1px solid #e2dfd5;
+    border: 1px solid var(--border);
     border-radius: 6px;
-    background: #f8f7f2;
+    background: var(--panel);
     object-fit: cover;
 }
 
@@ -317,5 +277,9 @@ th {
 
     .header {
         text-align: left;
+    }
+
+    .collage {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }
 }
