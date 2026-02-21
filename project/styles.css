@@ -261,11 +261,12 @@ th {
 
 .collage-video {
     width: 100%;
-    height: 140px;
+    height: auto;
     border: 1px solid var(--border);
     border-radius: 6px;
     background: var(--panel);
-    object-fit: cover;
+    object-fit: contain;
+    display: block;
 }
 
 @media screen and (max-width: 800px) {
